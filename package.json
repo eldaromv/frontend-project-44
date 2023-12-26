@@ -1,12 +1,12 @@
 {
   "name": "@hexlet/code.",
+  "bin": {
+    "brain-games": "bin/brain-games.js"
+  },
   "version": "1.0.0",
   "type": "module",
   "description": "FirstProject",
   "main": "index.js",
-  "bin": {
-    "brain-games": "bin/brain-games.js"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
