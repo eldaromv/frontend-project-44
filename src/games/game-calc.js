@@ -1,7 +1,7 @@
 import logicOfGame from '../index.js';
 import getRandomNumber from '../expression.js';
 
-const symbols = ['+', '-', '*']
+const symbols = ['+', '-', '*'];
 
 const rules = 'What is the result of the expression?';
 
@@ -21,13 +21,13 @@ const answerQuestion = (act1, act2, action) => {
 const initializeRound = () => {
   const act1 = getRandomNumber(1, 25);
   const act2 = getRandomNumber(1, 25);
-  const action = symbols[getRandomNumber(0, symbols.length - 1)]
+  const action = symbols[getRandomNumber(0, symbols.length - 1)];
   const question = `${act1} ${action} ${act2}`;
   const systemAnswer = answerQuestion(act1, act2, action);
   return [question, String(systemAnswer)];
 };
 
 const startGame = () => {
-    logicOfGame(rules, initializeRound);
+  logicOfGame(rules, initializeRound);
 };
 export default startGame;

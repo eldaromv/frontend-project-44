@@ -13,6 +13,6 @@ const initializeRound = () => {
 };
 
 const startGame = () => {
-    logicOfGame(rules, initializeRound);
+  logicOfGame(rules, initializeRound);
 };
 export default startGame;
