@@ -18,7 +18,8 @@ const primeNum = (num) => {
 const initializeRound = () => {
   const number = getRandomNumber(1, 100);
   const question = String(number);
-  const systemAnswer = primeNum(question) ? 'yes' : 'no';
+  const result = primeNum(number);
+  const systemAnswer = result ? 'yes' : 'no';
   return [question, systemAnswer];
 };
 
