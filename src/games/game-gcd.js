@@ -1,5 +1,5 @@
 import logicOfGame from '../index.js';
-import getRandomNumber from '../expression.js';
+import getRandomNumber from '../utils.js';
 
 const rules = 'Find the greatest common divisor of given numbers.';
 
@@ -13,8 +13,8 @@ const initializeRound = () => {
   const act1 = getRandomNumber(1, 100);
   const act2 = getRandomNumber(1, 100);
   const question = `${act1} ${act2}`;
-  const systemAnswer = NOD(act1, act2);
-  return [question, String(systemAnswer)];
+  const correctAnswer = NOD(act1, act2);
+  return [question, String(correctAnswer)];
 };
 
 const startGame = () => {

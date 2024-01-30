@@ -10,7 +10,7 @@
   },
   "version": "1.0.0",
   "type": "module",
-  "description": "FirstProject",
+  "description": "Brain Games” is a set of five console games built on the principle of popular mobile applications for brain training. My first project",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

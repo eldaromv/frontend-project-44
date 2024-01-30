@@ -1,5 +1,5 @@
 import logicOfGame from '../index.js';
-import getRandomNumber from '../expression.js';
+import getRandomNumber from '../utils.js';
 
 const symbols = ['+', '-', '*'];
 
@@ -14,7 +14,7 @@ const answerQuestion = (act1, act2, action) => {
     case '*':
       return act1 * act2;
     default:
-      throw new Error('No such action');
+      throw new Error(`Unknown: '${action}'!`);
   }
 };
 
@@ -23,8 +23,8 @@ const initializeRound = () => {
   const act2 = getRandomNumber(1, 25);
   const action = symbols[getRandomNumber(0, symbols.length - 1)];
   const question = `${act1} ${action} ${act2}`;
-  const systemAnswer = answerQuestion(act1, act2, action);
-  return [question, String(systemAnswer)];
+  const correctAnswer = answerQuestion(act1, act2, action);
+  return [question, String(correctAnswer)];
 };
 
 const startGame = () => {

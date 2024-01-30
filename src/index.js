@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import readlineSync from 'readline-sync';
 
 const logicOfGame = (rules, initializeRound) => {
@@ -8,18 +7,18 @@ const logicOfGame = (rules, initializeRound) => {
   console.log(rules);
 
   let correctAnswers = 0;
-  const rounds = 3;
+  const countRounds = 3;
 
-  while (correctAnswers < rounds) {
-    const [question, systemAnswer] = initializeRound();
+  while (correctAnswers < countRounds) {
+    const [question, correctAnswer] = initializeRound();
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
 
-    if (userAnswer.toLowerCase() === systemAnswer) {
+    if (userAnswer.toLowerCase() === correctAnswer) {
       console.log('Correct!');
       correctAnswers += 1;
     } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${systemAnswer}'.`);
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${userName}!`);
       return;
     }

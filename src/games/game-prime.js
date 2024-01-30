@@ -1,5 +1,5 @@
 import logicOfGame from '../index.js';
-import getRandomNumber from '../expression.js';
+import getRandomNumber from '../utils.js';
 
 const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
@@ -19,8 +19,8 @@ const initializeRound = () => {
   const number = getRandomNumber(1, 100);
   const question = String(number);
   const result = primeNum(number);
-  const systemAnswer = result ? 'yes' : 'no';
-  return [question, systemAnswer];
+  const correctAnswer = result ? 'yes' : 'no';
+  return [question, correctAnswer];
 };
 
 const startGame = () => {
