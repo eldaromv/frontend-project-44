@@ -1,23 +1,23 @@
-import logicOfGame from '../index.js';
+import runGame from '../index.js';
 import getRandomNumber from '../utils.js';
 
 const rules = 'Find the greatest common divisor of given numbers.';
 
-const NOD = (x, y) => {
-  if (y > x) return NOD(y, x);
+const nod = (x, y) => {
+  if (y > x) return nod(y, x);
   if (!y) return x;
-  return NOD(y, x % y);
+  return nod(y, x % y);
 };
 
 const initializeRound = () => {
-  const act1 = getRandomNumber(1, 100);
-  const act2 = getRandomNumber(1, 100);
-  const question = `${act1} ${act2}`;
-  const correctAnswer = NOD(act1, act2);
+  const num1 = getRandomNumber(1, 100);
+  const num2 = getRandomNumber(1, 100);
+  const question = `${num1} ${num2}`;
+  const correctAnswer = nod(num1, num2);
   return [question, String(correctAnswer)];
 };
 
 const startGame = () => {
-  logicOfGame(rules, initializeRound);
+  runGame(rules, initializeRound);
 };
 export default startGame;

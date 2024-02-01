@@ -1,9 +1,9 @@
-import logicOfGame from '../index.js';
+import runGame from '../index.js';
 import getRandomNumber from '../utils.js';
 
 const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const primeNum = (num) => {
+const isPrime = (num) => {
   if (num <= 1) {
     return false;
   }
@@ -18,12 +18,12 @@ const primeNum = (num) => {
 const initializeRound = () => {
   const number = getRandomNumber(1, 100);
   const question = String(number);
-  const result = primeNum(number);
+  const result = isPrime(number);
   const correctAnswer = result ? 'yes' : 'no';
   return [question, correctAnswer];
 };
 
 const startGame = () => {
-  logicOfGame(rules, initializeRound);
+  runGame(rules, initializeRound);
 };
 export default startGame;

@@ -1,33 +1,33 @@
-import logicOfGame from '../index.js';
+import runGame from '../index.js';
 import getRandomNumber from '../utils.js';
 
 const symbols = ['+', '-', '*'];
 
 const rules = 'What is the result of the expression?';
 
-const answerQuestion = (act1, act2, action) => {
-  switch (action) {
+const answerQuestion = (num1, num2, operator) => {
+  switch (operator) {
     case '+':
-      return act1 + act2;
+      return num1 + num2;
     case '-':
-      return act1 - act2;
+      return num1 - num2;
     case '*':
-      return act1 * act2;
+      return num1 * num2;
     default:
-      throw new Error(`Unknown: '${action}'!`);
+      throw new Error(`Unknown operator is used: '${operator}'!`);
   }
 };
 
 const initializeRound = () => {
-  const act1 = getRandomNumber(1, 25);
-  const act2 = getRandomNumber(1, 25);
-  const action = symbols[getRandomNumber(0, symbols.length - 1)];
-  const question = `${act1} ${action} ${act2}`;
-  const correctAnswer = answerQuestion(act1, act2, action);
+  const num1 = getRandomNumber(1, 25);
+  const num2 = getRandomNumber(1, 25);
+  const operator = symbols[getRandomNumber(0, symbols.length - 1)];
+  const question = `${num1} ${operator} ${num2}`;
+  const correctAnswer = answerQuestion(num1, num2, operator);
   return [question, String(correctAnswer)];
 };
 
 const startGame = () => {
-  logicOfGame(rules, initializeRound);
+  runGame(rules, initializeRound);
 };
 export default startGame;

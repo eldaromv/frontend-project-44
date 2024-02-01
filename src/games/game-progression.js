@@ -1,25 +1,30 @@
-import logicOfGame from '../index.js';
+import runGame from '../index.js';
 import getRandomNumber from '../utils.js';
 
 const rules = 'What number is missing in the progression?';
 
-const initializeRound = () => {
+const getProgression = (number, numberAdd, progressionLength) => {
   const progression = [];
-  const length = 10;
+  for (let i = 0; i <= progressionLength; i += 1) {
+    progression.push(number + numberAdd * i);
+  }
+  return progression;
+};
+
+const initializeRound = () => {
+  const progressionLength = 10;
   const startNumber = getRandomNumber(1, 50);
   const increaseInProgression = getRandomNumber(1, 10);
   const rangdomMissingNum = getRandomNumber(0, 10);
-
-  for (let i = 0; i <= length; i += 1) {
-    progression.push(startNumber + increaseInProgression * i);
-  }
+  const progression = getProgression(startNumber, increaseInProgression, progressionLength);
   const correctAnswer = progression[rangdomMissingNum];
   progression[rangdomMissingNum] = '..';
   const question = progression.join(' ');
+
   return [question, String(correctAnswer)];
 };
 
 const startGame = () => {
-  logicOfGame(rules, initializeRound);
+  runGame(rules, initializeRound);
 };
 export default startGame;

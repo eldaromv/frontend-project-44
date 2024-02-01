@@ -1,4 +1,4 @@
-import logicOfGame from '../index.js';
+import runGame from '../index.js';
 import getRandomNumber from '../utils.js';
 
 const isEven = (num) => num % 2 === 0;
@@ -13,6 +13,6 @@ const initializeRound = () => {
 };
 
 const startGame = () => {
-  logicOfGame(rules, initializeRound);
+  runGame(rules, initializeRound);
 };
 export default startGame;
